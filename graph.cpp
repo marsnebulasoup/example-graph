@@ -71,3 +71,7 @@ bool Graph::removeEdge(int id1, int id2)
   }
   return wasRemoved;
 }
+bool Graph::isEmpty()
+{
+  return list.empty();
+}
