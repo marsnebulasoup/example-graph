@@ -132,3 +132,18 @@ int Graph::getTotalEdgeCount()
   }
   return count / 2;
 }
+
+void Graph::dumpGraph(string &out)
+{
+  out = "\nGRAPH:\n";
+  for (const Vertices *vertex : list)
+  {
+    out += "[" + to_string(vertex->vertex.id);
+    out += ", " + vertex->vertex.data + "]";
+    for (const Vertex *edge : vertex->vertices)
+    {
+      out += " -> " + to_string(edge->id);
+    }
+    out += "\n";
+  }
+}
