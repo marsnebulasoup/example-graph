@@ -40,3 +40,21 @@ bool Graph::addEdge(int id1, int id2)
   }
   return wasAdded;
 }
+bool Graph::removeVertex(int id)
+{
+  bool wasRemoved = false;
+  Vertices *search = findVertex(id);
+  if (search)
+  {
+    auto edge = search->vertices.begin();
+    while (edge != search->vertices.cend())
+    {
+      std::advance(edge, 1);
+      removeEdge(search->vertex.id, (*std::prev(edge))->id);
+    }
+    list.erase(search);
+    delete search;
+    wasRemoved = true;
+  }
+  return wasRemoved;
+}
