@@ -114,3 +114,7 @@ bool Graph::containsEdge(int id1, int id2)
   }
   return wasFound;
 }
+int Graph::getVertexCount()
+{
+  return list.size();
+}
