@@ -82,3 +82,17 @@ bool Graph::getVertex(int id, Vertex *out)
   out->data = search ? search->vertex.data : "";
   return search;
 }
+bool Graph::getEdges(int id, vector<Vertex *> *out)
+{
+  bool wasFound = false;
+  Vertices *search = findVertex(id);
+  if (search)
+  {
+    for (const Vertex *vertex : search->vertices)
+    {
+      out->push_back(new Vertex{vertex->id, vertex->data});
+    }
+    wasFound = true;
+  }
+  return wasFound;
+}
