@@ -123,3 +123,12 @@ int Graph::getEdgeCount(int id)
   Vertices *search = findVertex(id);
   return search ? search->vertices.size() : 0;
 }
+int Graph::getTotalEdgeCount()
+{
+  int count = 0;
+  for (const Vertices *vertices : list)
+  {
+    count += vertices->vertices.size();
+  }
+  return count / 2;
+}
