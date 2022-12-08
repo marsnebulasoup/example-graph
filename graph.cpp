@@ -118,3 +118,8 @@ int Graph::getVertexCount()
 {
   return list.size();
 }
+int Graph::getEdgeCount(int id)
+{
+  Vertices *search = findVertex(id);
+  return search ? search->vertices.size() : 0;
+}
