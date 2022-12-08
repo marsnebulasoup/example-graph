@@ -27,3 +27,16 @@ bool Graph::addVertex(const int id, const string *data)
   }
   return wasAdded;
 }
+bool Graph::addEdge(int id1, int id2)
+{
+  bool wasAdded = false;
+  if (id1 != id2 && containsVertex(id1) && containsVertex(id2))
+  {
+    Vertices *vertex1 = findVertex(id1);
+    Vertices *vertex2 = findVertex(id2);
+    wasAdded =
+        vertex1->vertices.insert(&vertex2->vertex).second &&
+        vertex2->vertices.insert(&vertex1->vertex).second;
+  }
+  return wasAdded;
+}
