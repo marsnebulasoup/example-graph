@@ -75,3 +75,10 @@ bool Graph::isEmpty()
 {
   return list.empty();
 }
+bool Graph::getVertex(int id, Vertex *out)
+{
+  Vertices *search = findVertex(id);
+  out->id = search ? search->vertex.id : -1;
+  out->data = search ? search->vertex.data : "";
+  return search;
+}
