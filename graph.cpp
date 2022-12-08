@@ -17,3 +17,13 @@ Vertices *Graph::findVertex(int id)
   Vertices *vertices = *list.find(&search);
   return vertices == *list.end() ? NULL : vertices;
 }
+bool Graph::addVertex(const int id, const string *data)
+{
+  bool wasAdded = false;
+  if (isValid(id, data) && !containsVertex(id))
+  {
+    Vertices *vertices = new Vertices{Vertex{id, *data}};
+    wasAdded = list.insert(vertices).second;
+  }
+  return wasAdded;
+}
