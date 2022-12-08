@@ -101,3 +101,16 @@ bool Graph::containsVertex(int id)
   Vertices search = Vertices{Vertex{id}};
   return list.count(&search);
 }
+bool Graph::containsEdge(int id1, int id2)
+{
+  bool wasFound = false;
+  if (id1 != id2 && containsVertex(id1) && containsVertex(id2))
+  {
+    Vertices *vertex1 = findVertex(id1);
+    Vertices *vertex2 = findVertex(id2);
+    wasFound =
+        vertex1->vertices.count(&vertex2->vertex) &&
+        vertex2->vertices.count(&vertex1->vertex);
+  }
+  return wasFound;
+}
