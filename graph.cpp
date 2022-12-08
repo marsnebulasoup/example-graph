@@ -58,3 +58,16 @@ bool Graph::removeVertex(int id)
   }
   return wasRemoved;
 }
+bool Graph::removeEdge(int id1, int id2)
+{
+  bool wasRemoved = false;
+  Vertices *vertex1 = findVertex(id1);
+  Vertices *vertex2 = findVertex(id2);
+  if (vertex1 && vertex2)
+  {
+    wasRemoved =
+        vertex1->vertices.erase(&vertex2->vertex) &&
+        vertex2->vertices.erase(&vertex1->vertex);
+  }
+  return wasRemoved;
+}
