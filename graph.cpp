@@ -96,3 +96,8 @@ bool Graph::getEdges(int id, vector<Vertex *> *out)
   }
   return wasFound;
 }
+bool Graph::containsVertex(int id)
+{
+  Vertices search = Vertices{Vertex{id}};
+  return list.count(&search);
+}
