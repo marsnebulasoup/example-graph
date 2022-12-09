@@ -41,8 +41,9 @@ TEST_CASE("empty tests")
       {
         added.insert(item.id);
       }
-
-      CHECK(graph.containsVertex(item.id) == item.isValid);
+      
+      bool isInGraph = added.count(item.id);
+      CHECK(graph.containsVertex(item.id) == isInGraph);
 
       addedCount += (item.isValid && isNotDuplicate);
       CHECK(graph.getVertexCount() == addedCount);
@@ -52,17 +53,13 @@ TEST_CASE("empty tests")
       CHECK(graph.getTotalEdgeCount() == 0);
 
       Vertex vertex;
-      CHECK(graph.getVertex(item.id, &vertex) == item.isValid);
-      CHECK(item.isValid ? vertex.id == item.id : vertex.id == -1);
-      if (item.isValid)
-      {
-        if (item.isUnique)
-        {
-          CHECK(vertex.data == item.data);
-        }
-      }
-      else
-      {
+      CHECK(graph.getVertex(item.id, &vertex) == isInGraph);
+      if(wasAdded) {
+        CHECK(vertex.id == item.id);
+        CHECK(vertex.data == item.data);
+      } 
+      if(!isInGraph) {
+        CHECK(vertex.id == -1);
         CHECK(vertex.data == "");
       }
     }
