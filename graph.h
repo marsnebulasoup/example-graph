@@ -16,6 +16,8 @@ using std::set;
 using std::string;
 using std::to_string;
 using std::vector;
+using std::advance;
+using std::prev;
 
 class Graph
 {
@@ -23,9 +25,12 @@ private:
   set<Vertices *, vertices_cmp> list;
 
   bool isValid(const int, const string *);
+  bool removeVertex(Vertices*);
   Vertices *findVertex(int);
 
 public:
+  ~Graph();
+
   bool addVertex(const int, const string *);
   bool addEdge(int, int);
   bool removeVertex(int);

@@ -6,9 +6,37 @@ An implementation of a graph class
 
 #include "graph.h"
 
+Graph::~Graph()
+{
+  auto vertex = list.begin();
+  while (vertex != list.cend())
+  {
+    advance(vertex, 1);
+    removeVertex(*prev(vertex));
+  }
+}
+
 bool Graph::isValid(const int id, const string *data)
 {
   return id > 0 && data && data->length();
+}
+
+bool Graph::removeVertex(Vertices *vertex)
+{
+  bool wasRemoved = false;
+  if (vertex)
+  {
+    auto edge = vertex->vertices.begin();
+    while (edge != vertex->vertices.cend())
+    {
+      advance(edge, 1);
+      removeEdge(vertex->vertex.id, (*prev(edge))->id);
+    }
+    list.erase(vertex);
+    delete vertex;
+    wasRemoved = true;
+  }
+  return wasRemoved;
 }
 
 Vertices *Graph::findVertex(int id)
@@ -42,21 +70,8 @@ bool Graph::addEdge(int id1, int id2)
 }
 bool Graph::removeVertex(int id)
 {
-  bool wasRemoved = false;
   Vertices *search = findVertex(id);
-  if (search)
-  {
-    auto edge = search->vertices.begin();
-    while (edge != search->vertices.cend())
-    {
-      std::advance(edge, 1);
-      removeEdge(search->vertex.id, (*std::prev(edge))->id);
-    }
-    list.erase(search);
-    delete search;
-    wasRemoved = true;
-  }
-  return wasRemoved;
+  return removeVertex(search);
 }
 bool Graph::removeEdge(int id1, int id2)
 {
