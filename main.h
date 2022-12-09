@@ -19,7 +19,7 @@ An implementation of a graph class
 #include <chrono>
 #include <map>
 
-#define TEST_DATA_SIZE 15
+#define TEST_DATA_SIZE 150
 #define RANDOM_TEST_ITERATIONS 100000
 
 using std::map;

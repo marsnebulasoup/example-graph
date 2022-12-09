@@ -7,7 +7,7 @@ An implementation of a graph class
 #ifndef GRAPH_TESTDATA_H
 #define GRAPH_TESTDATA_H
 
-#define MAXINT 10
+#define MAXINT 100
 #define MAXSTR 10
 
 #include <stdlib.h>
