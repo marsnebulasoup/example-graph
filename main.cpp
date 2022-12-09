@@ -17,7 +17,7 @@ TEST_CASE("empty tests")
 
   for (TestVertex &vertex : items)
   {
-    rand_testdata(&vertex);
+    rand_vertex(&vertex);
   }
 
   SUBCASE("graph initializes")
@@ -223,7 +223,7 @@ TEST_CASE("random tests")
   for (int i = 0; i < RANDOM_TEST_ITERATIONS; i++)
   {
     TestVertex item;
-    rand_testdata(&item);
+    rand_vertex(&item);
     switch (rand() % 4)
     {
     case 0: // addVertex
@@ -254,7 +254,7 @@ TEST_CASE("random tests")
     case 1: // addEdge
     {
       TestVertex edge;
-      rand_testdata(&edge);
+      rand_vertex(&edge);
       MESSAGE(i << " | adding edge " << item.id << " <---> " << edge.id);
 
       bool shouldBeAdded =
@@ -354,7 +354,7 @@ TEST_CASE("random tests")
     case 3: // removeEdge
     {
       TestVertex edge;
-      rand_testdata(&edge);
+      rand_vertex(&edge);
       MESSAGE(i << " | removing edge " << item.id << " <---> " << edge.id);
 
       const int initialItemEdgeCount = edgeRecord[item.id].size();

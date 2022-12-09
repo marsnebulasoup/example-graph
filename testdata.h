@@ -25,6 +25,6 @@ struct TestVertex
 
 void rand_int(int *);
 void rand_string(string *);
-void rand_testdata(TestVertex *item);
+void rand_vertex(TestVertex *item);
 
 #endif /* GRAPH_TESTDATA_H */

@@ -35,7 +35,7 @@ void rand_string(string *str)
   return;
 }
 
-void rand_testdata(TestVertex *item)
+void rand_vertex(TestVertex *item)
 {
   rand_int(&item->id);
   rand_string(&item->data);
