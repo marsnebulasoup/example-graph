@@ -6,9 +6,9 @@ An implementation of a graph class
 
 #include "main.h"
 
-TEST_SUITE_BEGIN("Adjacency graph Tests");
+TEST_SUITE_BEGIN("Graph Tests");
 
-TEST_CASE("empty adjacency graph")
+TEST_CASE("empty tests")
 {
   srand(time(NULL));
 
@@ -20,7 +20,7 @@ TEST_CASE("empty adjacency graph")
     rand_testdata(&vertex);
   }
 
-  SUBCASE("adjacency graph initializes")
+  SUBCASE("graph initializes")
   {
     CHECK(graph.isEmpty());
     CHECK(graph.getVertexCount() == 0);
@@ -211,6 +211,8 @@ TEST_CASE("empty adjacency graph")
     CHECK(graph.getTotalEdgeCount() == 0);
   }
 }
+
+
 TEST_CASE("random tests")
 {
   Graph graph;
