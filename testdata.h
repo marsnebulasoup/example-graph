@@ -20,7 +20,6 @@ struct TestVertex
   int id;
   string data;
   bool isValid;
-  bool isUnique;
 };
 
 void rand_int(int *);
