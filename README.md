@@ -1,5 +1,3 @@
-# COSC-2436
-## Kevin Bryniak
-### Final Project: Graphs
+# example-graph
 
 An undirected, unweighted graph class.
